@@ -13,14 +13,19 @@ name = "stack_overflow"
 harness = false
 
 [dependencies]
+# basic
 bootloader = { version = "0.9", features = ["map_physical_memory"] }
-volatile = "0.2.6"
-spin = "0.5.2"
 x86_64 = "0.14"
+linked_list_allocator = "0.9.0"
+# compile
+volatile = "0.2.6"
+lazy_static = { version = "1.0", features = ["spin_no_std"] }
+# sync
+spin = "0.5.2"
+# io
 uart_16550 = "0.2.0"
 pic8259 = "0.10.1"
 pc-keyboard = "0.5.0"
-lazy_static = { version = "1.0", features = ["spin_no_std"] }
 
 [package.metadata.bootimage]
 run-args = ["-monitor", "stdio"]

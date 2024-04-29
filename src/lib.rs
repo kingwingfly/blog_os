@@ -4,6 +4,8 @@
 #![test_runner(crate::test_runner)]
 #![reexport_test_harness_main = "test_main"]
 
+extern crate alloc;
+
 #[cfg(test)]
 use bootloader::{entry_point, BootInfo};
 use core::panic::PanicInfo;
@@ -11,6 +13,7 @@ use core::panic::PanicInfo;
 #[cfg(test)]
 entry_point!(test_kernel_main);
 
+pub mod allocator;
 pub mod gdt;
 pub mod interrupts;
 pub mod memory;
