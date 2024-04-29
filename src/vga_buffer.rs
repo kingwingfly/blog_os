@@ -142,11 +142,6 @@ impl fmt::Write for Writer {
 }
 
 #[test_case]
-fn trivial_assertion() {
-    // assert_eq!(1, 1);
-}
-
-#[test_case]
 fn test_println_many() {
     for _ in 0..200 {
         println!("test_println_many output");

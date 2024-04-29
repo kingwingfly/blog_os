@@ -12,9 +12,10 @@ fn panic(info: &PanicInfo) -> ! {
     blog_os::test_panic_handler(info)
 }
 
+#[allow(clippy::eq_op)]
 #[test_case]
 fn trivial_assertion() {
-    // assert_eq!(1, 1);
+    assert_eq!(1, 1);
 }
 
 #[test_case]
@@ -27,5 +28,5 @@ fn test_println_output() {
 pub extern "C" fn _start() -> ! {
     test_main();
 
-    loop {}
+    blog_os::hlt_loop();
 }
