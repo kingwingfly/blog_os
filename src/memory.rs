@@ -1,11 +1,9 @@
-use x86_64::structures::paging::{Mapper, OffsetPageTable, Page};
-use x86_64::{structures::paging::PageTable, VirtAddr};
-use x86_64::{
-    structures::paging::{FrameAllocator, PhysFrame, Size4KiB},
-    PhysAddr,
+use bootloader::bootinfo::{MemoryMap, MemoryRegionType};
+use x86_64::structures::paging::{
+    FrameAllocator, Mapper, OffsetPageTable, Page, PhysFrame, Size4KiB,
 };
-
-use bootloader::bootinfo::MemoryMap;
+use x86_64::PhysAddr;
+use x86_64::{structures::paging::PageTable, VirtAddr};
 
 /// A FrameAllocator that returns usable frames from the bootloader's memory map.
 pub struct BootInfoFrameAllocator {
@@ -26,8 +24,6 @@ impl BootInfoFrameAllocator {
         }
     }
 }
-
-use bootloader::bootinfo::MemoryRegionType;
 
 impl BootInfoFrameAllocator {
     /// Returns an iterator over the usable frames specified in the memory map.

@@ -27,7 +27,7 @@ pub fn _print(args: fmt::Arguments) {
     use core::fmt::Write;
     use x86_64::instructions::interrupts;
 
-    interrupts::without_interrupts(|| {     // new
+    interrupts::without_interrupts(|| {
         WRITER.lock().write_fmt(args).unwrap();
     });
 }
@@ -141,11 +141,9 @@ impl fmt::Write for Writer {
     }
 }
 
-
-
 #[test_case]
 fn trivial_assertion() {
-    assert_eq!(1, 1);
+    // assert_eq!(1, 1);
 }
 
 #[test_case]
@@ -159,7 +157,7 @@ fn test_println_many() {
 fn test_println_output() {
     use core::fmt::Write;
     use x86_64::instructions::interrupts;
-    
+
     let s = "Some test string that fits on a single line";
     println!("{}", s);
     interrupts::without_interrupts(|| {
