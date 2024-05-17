@@ -54,6 +54,16 @@ fn many_boxes() {
     }
 }
 
+#[test_case]
+fn many_boxes_long_lived() {
+    let _x = Box::new(42);
+    for i in 0..HEAP_SIZE {
+        let x = Box::new(i);
+        assert_eq!(*x, i);
+    }
+    let _y = Box::new(42);
+}
+
 #[panic_handler]
 fn panic(info: &PanicInfo) -> ! {
     blog_os::test_panic_handler(info)
