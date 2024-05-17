@@ -6,7 +6,6 @@
 
 extern crate alloc;
 
-use alloc::boxed::Box;
 use blog_os::{allocator::init_heap, memory::BootInfoFrameAllocator, println};
 use bootloader::{entry_point, BootInfo};
 use core::panic::PanicInfo;
