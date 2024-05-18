@@ -9,7 +9,7 @@ extern crate alloc;
 
 use blog_os::{
     allocator::init_heap,
-    memory::BootInfoFrameAllocator,
+    memory::{self, BootInfoFrameAllocator},
     println,
     task::{executor::Executor, keyboard, Task},
 };
@@ -20,8 +20,6 @@ use x86_64::VirtAddr;
 entry_point!(kernel_main);
 
 fn kernel_main(boot_info: &'static BootInfo) -> ! {
-    use blog_os::memory;
-
     println!("Hello World{}", "!");
     blog_os::init();
 
