@@ -22,10 +22,20 @@ volatile = "0.2.6"
 lazy_static = { version = "1.0", features = ["spin_no_std"] }
 # sync
 spin = "0.5.2"
+# async
+futures-util = { version = "0.3", default-features = false, features = [
+    "alloc",
+] }
 # io
 uart_16550 = "0.2.0"
 pic8259 = "0.10.1"
 pc-keyboard = "0.5.0"
+# data structure
+crossbeam-queue = { version = "0.2", default-features = false, features = [
+    "alloc",
+] }
+conquer-once = { version = "0.2", default-features = false }
+
 
 [package.metadata.bootimage]
 run-args = ["-monitor", "stdio"]
